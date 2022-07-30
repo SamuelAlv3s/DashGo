@@ -7,10 +7,11 @@ import {
   HStack,
   SimpleGrid,
   VStack,
-} from '@chakra-ui/react';
-import { Input } from '../../components/Form/Input';
-import { Header } from '../../components/Header';
-import { Sidebar } from '../../components/Sidebar';
+} from "@chakra-ui/react";
+import Link from "next/link";
+import { Input } from "../../components/Form/Input";
+import { Header } from "../../components/Header";
+import { Sidebar } from "../../components/Sidebar";
 
 export default function UserCreate() {
   return (
@@ -20,7 +21,7 @@ export default function UserCreate() {
       <Flex w="100%" my="6" maxWidth={1120} mx="auto" px="6">
         <Sidebar />
 
-        <Box flex="1" borderRadius={8} bg="gray.800" p="8">
+        <Box flex="1" borderRadius={8} bg="gray.800" p={["6", "8"]}>
           <Heading size="lg" fontWeight="normal">
             Criar usuário
           </Heading>
@@ -44,7 +45,9 @@ export default function UserCreate() {
           </VStack>
           <Flex mt="8" justify="flex-end">
             <HStack spacing="4">
-              <Button colorScheme="whiteAlpha">Cancelar</Button>
+              <Link href="/users">
+                <Button colorScheme="whiteAlpha">Cancelar</Button>
+              </Link>
               <Button colorScheme="pink">Salvar</Button>
             </HStack>
           </Flex>

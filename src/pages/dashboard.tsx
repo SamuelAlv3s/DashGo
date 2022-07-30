@@ -1,9 +1,9 @@
-import { Flex, SimpleGrid, Box, Text, theme } from '@chakra-ui/react';
-import dynamic from 'next/dynamic';
-import { Header } from '../components/Header';
-import { Sidebar } from '../components/Sidebar';
+import { Flex, SimpleGrid, Box, Text, theme } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
+import { Header } from "../components/Header";
+import { Sidebar } from "../components/Sidebar";
 
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const options = {
   chart: {
@@ -25,7 +25,7 @@ const options = {
     enabled: false,
   },
   xaxis: {
-    type: 'datetime',
+    type: "datetime",
     axisBorder: {
       color: theme.colors.gray[600],
     },
@@ -33,20 +33,20 @@ const options = {
       color: theme.colors.gray[600],
     },
     categories: [
-      '2021-03-18T00:00:00.000z',
-      '2021-03-19T00:00:00.000z',
-      '2021-03-20T00:00:00.000z',
-      '2021-03-21T00:00:00.000z',
-      '2021-03-22T00:00:00.000z',
-      '2021-03-23T00:00:00.000z',
-      '2021-03-24T00:00:00.000z',
+      "2021-03-18T00:00:00.000z",
+      "2021-03-19T00:00:00.000z",
+      "2021-03-20T00:00:00.000z",
+      "2021-03-21T00:00:00.000z",
+      "2021-03-22T00:00:00.000z",
+      "2021-03-23T00:00:00.000z",
+      "2021-03-24T00:00:00.000z",
     ],
   },
   fill: {
     opacity: 0.3,
-    type: 'gradient',
+    type: "gradient",
     gradient: {
-      shade: 'dark',
+      shade: "dark",
       opacityFrom: 0.7,
       opacityTo: 0.3,
     },
@@ -54,7 +54,7 @@ const options = {
 };
 const series = [
   {
-    name: 'Series1',
+    name: "Series1",
     data: [31, 120, 10, 28, 51, 18, 109],
   },
 ];
@@ -67,7 +67,7 @@ export default function Dashboard() {
         <Flex w="100%" my="6" maxWidth={1120} mx="auto" px="6">
           <Sidebar />
           <SimpleGrid flex="1" gap="4" minChildWidth="320px">
-            <Box p="8" pb="4" bg="gray.800" borderRadius={8}>
+            <Box p={["6", "8"]} pb="4" bg="gray.800" borderRadius={8}>
               <Text fontSize="lg" mb="4">
                 Inscritos da semana
               </Text>
@@ -78,7 +78,7 @@ export default function Dashboard() {
                 series={series}
               />
             </Box>
-            <Box p="8" pb="4" bg="gray.800" borderRadius={8}>
+            <Box p={["6", "8"]} pb="4" bg="gray.800" borderRadius={8}>
               <Text fontSize="lg" mb="4">
                 Taxa de abertura
               </Text>

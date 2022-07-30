@@ -12,13 +12,19 @@ import {
   Th,
   Thead,
   Tr,
-} from '@chakra-ui/react';
-import { RiAddLine } from 'react-icons/ri';
-import { Header } from '../../components/Header';
-import { Pagination } from '../../components/Pagination';
-import { Sidebar } from '../../components/Sidebar';
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import Link from "next/link";
+import { RiAddLine } from "react-icons/ri";
+import { Header } from "../../components/Header";
+import { Pagination } from "../../components/Pagination";
+import { Sidebar } from "../../components/Sidebar";
 
 export default function UserList() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <Box>
       <Header />
@@ -31,14 +37,16 @@ export default function UserList() {
             <Heading size="lg" fontWeight="normal">
               Usuários
             </Heading>
-            <Button
-              as="a"
-              size="sm"
-              colorScheme="pink"
-              leftIcon={<Icon as={RiAddLine} fontSize="20" />}
-            >
-              Criar novo
-            </Button>
+            <Link href="/users/create" passHref>
+              <Button
+                as="a"
+                size="sm"
+                colorScheme="pink"
+                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+              >
+                Criar novo
+              </Button>
+            </Link>
           </Flex>
 
           <Table colorScheme="whiteAlpha">
@@ -48,12 +56,12 @@ export default function UserList() {
                   <Checkbox colorScheme="pink" />
                 </Th>
                 <Th>Usuário</Th>
-                <Th>Data de cadastro</Th>
+                {isWideVersion && <Th>Data de cadastro</Th>}
               </Tr>
             </Thead>
             <Tbody>
               <Tr>
-                <Td px="6">
+                <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink" />
                 </Td>
                 <Td>
@@ -64,10 +72,10 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>23 de Julho de 2022</Td>
+                {isWideVersion && <Td>23 de Julho de 2022</Td>}
               </Tr>
               <Tr>
-                <Td px="6">
+                <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink" />
                 </Td>
                 <Td>
@@ -78,10 +86,10 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>23 de Julho de 2022</Td>
+                {isWideVersion && <Td>23 de Julho de 2022</Td>}
               </Tr>
               <Tr>
-                <Td px="6">
+                <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink" />
                 </Td>
                 <Td>
@@ -92,7 +100,7 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>23 de Julho de 2022</Td>
+                {isWideVersion && <Td>23 de Julho de 2022</Td>}
               </Tr>
             </Tbody>
           </Table>
